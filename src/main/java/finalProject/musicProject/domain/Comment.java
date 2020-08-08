@@ -25,8 +25,9 @@ public class Comment {
     @Column(columnDefinition = "serial")
     private long id;
 
-    //@ManyToOne
-    //private Song song;
+
+    @ManyToOne
+    private Song song;
 
     //@ManyToOne
     //private AppUser writer;
@@ -57,5 +58,13 @@ public class Comment {
 
     public void setDatePlaced(LocalDate datePlaced) {
         this.datePlaced = datePlaced;
+    }
+
+    public Song getSong() {
+        return song;
+    }
+
+    public void setSong(Song song) {
+        this.song = song;
     }
 }

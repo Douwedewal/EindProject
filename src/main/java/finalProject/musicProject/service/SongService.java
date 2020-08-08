@@ -27,7 +27,7 @@ public class SongService implements ISongService {
 
             return songRepository.save(song);
         }
-            throw new RuntimeException("User nog found");
+            throw new RuntimeException("User not found");
     }
 
     @Override

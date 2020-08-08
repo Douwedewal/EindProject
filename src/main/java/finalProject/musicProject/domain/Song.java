@@ -28,8 +28,8 @@ public class Song {
     @JsonIgnoreProperties({"songs", "hibernateLazyInitializer", "handler"})
     private AppUser user;
 
-//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "song")
-//    private List<Comment> comments;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "song")
+    private List<Comment> comments;
 
 
     public long getId() {
