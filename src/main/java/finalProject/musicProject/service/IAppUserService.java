@@ -7,5 +7,4 @@ public interface IAppUserService {
     AppUser getUserById(long id);
     AppUser addUser(AppUser newUser);
     String deleteUser(long id);
-    AppUser updateUserById(long id, AppUser updatedUser);
 }

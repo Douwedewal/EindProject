@@ -37,8 +37,4 @@ public class AppUserService implements IAppUserService {
         return "User komt niet voor in de database";
     }
 
-    @Override
-    public AppUser updateUserById(long id, AppUser updatedUser) {
-        return null;
-    }
 }

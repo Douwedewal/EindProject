@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Song {
+public  class Song  {
 
     @Id
     @GeneratedValue(
@@ -21,8 +21,12 @@ public class Song {
     @Column(columnDefinition = "serial")
     private long songId;
 
-    private String name;
+    private String songName;
+    private String songType;
     private String genre;
+
+    @Lob
+    private byte[] data;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties({"songs", "hibernateLazyInitializer", "handler"})
@@ -30,6 +34,18 @@ public class Song {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "song")
     private List<Comment> comments;
+
+    public Song() {
+
+    }
+
+    public Song(String songName, String songType, byte[] data, String genre) {
+        this.songName = songName;
+        this.songType = songType;
+        this.data = data;
+        this.genre = genre;
+    }
+
 
 
     public long getId() {
@@ -40,12 +56,12 @@ public class Song {
         this.songId = id;
     }
 
-    public String getName() {
-        return name;
+    public String getSongName() {
+        return songName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSongName(String songName) {
+        this.songName = songName;
     }
 
     public String getGenre() {
@@ -64,4 +80,19 @@ public class Song {
         this.user = user;
     }
 
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 }
