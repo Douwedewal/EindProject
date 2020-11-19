@@ -19,7 +19,7 @@ public  class Song  {
             strategy = "native"
     )
     @Column(columnDefinition = "serial")
-    private long songId;
+    private long id;
 
     private String songName;
     private String songType;
@@ -49,11 +49,11 @@ public  class Song  {
 
 
     public long getId() {
-        return songId;
+        return id;
     }
 
     public void setId(long id) {
-        this.songId = id;
+        this.id = id;
     }
 
     public String getSongName() {

@@ -48,7 +48,6 @@ public class SongService implements ISongService {
         Optional<Song> song = songRepository.findById(id);
 
         if(song.isPresent()) {
-
             Song leSong = song.get();
             leSong.setUser(song.get().getUser());
             return leSong;
@@ -59,5 +58,15 @@ public class SongService implements ISongService {
     @Override
     public List<Song> getAllSongs() {
         return songRepository.findAll();
+    }
+
+    @Override
+    public String deleteSongById(long id) {
+        Optional<Song> song = songRepository.findById(id);
+        if(song.isPresent()) {
+            songRepository.deleteById(id);
+            return "Song with id " + id + " has been deleted";
+        }
+        return "Song with id " + id + " not found";
     }
 }

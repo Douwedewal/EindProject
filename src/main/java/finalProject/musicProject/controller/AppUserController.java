@@ -24,7 +24,6 @@ public class AppUserController {
 
     @DeleteMapping(value = "/api/user/{id}")
     public String deleteUser(@PathVariable long id) {
-
         return appUserService.deleteUser(id);
     }
 }
